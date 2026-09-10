@@ -1,4 +1,4 @@
-# InvDNS
+
 
 ### Inventory-powered local DNS for macOS
 
@@ -11,6 +11,8 @@ from Terminal or any application that uses macOS name resolution.
 [Download](https://github.com/invdns/invdns/releases) ·
 [Installation guide](docs/INSTALLATION.md) ·
 [Report an issue](https://github.com/invdns/invdns/issues)
+
+<img width="296" height="446" alt="image" src="https://github.com/user-attachments/assets/a0e7a3d7-24c8-466b-b63a-671f4359136f" />
 
 ## From inventory to DNS
 
