@@ -1,8 +1,8 @@
-
+# InvDNS
 
 ### Inventory-powered local DNS for macOS
 
-Turn hostnames from your static Ansible inventory into local DNS names.
+Turn hostnames from your static Ansible inventory, or connect GLPI and Zabbix into local DNS names.
 Connect with `ssh admin@server01.inv` instead of looking up an IP address —
 from Terminal or any application that uses macOS name resolution.
 
@@ -29,17 +29,17 @@ Sync it, enable Resolver, and use the names:
 ```bash
 ssh admin@server01.inv
 ping database01.inv
+curl server7.inv
 ```
 
-The addresses above are examples. Use your actual host addresses and connect
-to the appropriate network or VPN — InvDNS resolves names; it does not provide
-network access.
 
 ## Made for your local inventory
 
 - **Read the files you already have.** Static Ansible INI and YAML, including
   nested YAML groups. Select one file or scan a folder recursively, regardless
   of filenames or extensions.
+- **Connect remote sources.** Import computers and IPv4 addresses from GLPI,
+  or host names and IPv4 interfaces from Zabbix. 
 - **Keep your inventory unchanged.** InvDNS reads hostname and IPv4
   `ansible_host` values without modifying the original files.
 - **See conflicts before connecting.** If the same hostname has different
@@ -49,12 +49,14 @@ network access.
   inspect conflicts and open Settings without leaving your workflow.
 - **Choose your local namespace.** Use the default `.inv` suffix or configure
   your own zone, loopback listen address, port and DNS TTL.
-
+- **Search from Terminal.** Find loaded hosts by name, IP, source, status or
+  Ansible group. Export selected fields as plain text, JSON or CSV without
+  triggering another inventory scan.
 No Ansible, Python or separate DNS-server installation is required.
 
 ## Install in a few steps
 
-1. Download `InvDNS-0.8.0-macOS.dmg` from
+1. Download `InvDNS-1.4.0-macOS.dmg` from
    [Releases](https://github.com/invdns/invdns/releases).
 2. Open the DMG and drag **InvDNS.app** to **Applications**.
 3. Launch InvDNS from Applications and open its menu bar icon.
@@ -62,13 +64,37 @@ No Ansible, Python or separate DNS-server installation is required.
 5. Click **Resolver OFF** to enable DNS. If macOS requests background-helper
    approval, complete it and follow the app's instructions to retry.
 
-The installer contains **0.8.0**. The app and DMG are signed with
+The installer contains **1.4.0**. The app and DMG are signed with
 Apple Developer ID and notarized by Apple. A `SHA256SUMS` file accompanies the
 download for integrity checks.
 
-Both Apple Silicon and Intel binaries are included. Physical Intel-Mac testing
-has not yet been completed; validation details are in the
-[release notes](docs/RELEASE_NOTES_0.8.0.md).
+## Find a host without leaving Terminal
+
+With InvDNS running and a source synchronized:
+
+```bash
+invdns search server
+invdns search group:nginx
+invdns search source:prod --output json
+invdns search group:nginx --fields host,ip
+```
+
+Search uses the last loaded snapshot. It does not contact remote sources or
+change DNS settings. [Search guide](docs/SEARCH.md).
+
+## Free, Trial and Pro
+
+**Free** gives you local DNS from one active inventory file or folder, with
+recursive scanning, manual sync, caching and conflict detection. It does not expire.
+
+**Pro** adds multiple sources, automatic file watching, scheduled synchronization,
+source priorities, saved conflict decisions and GLPI/Zabbix sources.
+
+The **14-day Trial** lets you try Pro capabilities. When it ends, InvDNS returns
+to Free and preserves your configuration. Additional sources and Pro settings
+remain stored but inactive under Free.
+
+To obtain a license, please write to us by email:[invdnspro@gmail.com](mailto:invdnspro@gmail.com).
 
 ## Local DNS, integrated with macOS
 
@@ -91,7 +117,8 @@ original inventory files.
 ## Help and documentation
 
 - [Installation, settings, updates and uninstall](docs/INSTALLATION.md)
-- [Troubleshooting and download verification](docs/TROUBLESHOOTING.md)
+- [Terminal search](docs/SEARCH.md)
+- [1.4.0 release notes](docs/RELEASE_NOTES_1.4.0.md)
 - [Changelog](CHANGELOG.md)
 - [Issues](https://github.com/invdns/invdns/issues)
 
@@ -100,8 +127,5 @@ and steps to reproduce. Remove sensitive information from screenshots and logs;
 never post credentials, license tokens or private inventory data.
 
 ---
-
-InvDNS is proprietary software. This repository contains public documentation
-and release materials, not the application's source code.
 
 [Proprietary notice](LICENSE.md) · [Third-party notices](THIRD_PARTY_NOTICES.md)

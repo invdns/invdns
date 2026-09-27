@@ -75,7 +75,9 @@ License: <https://github.com/fsnotify/fsnotify/blob/v1.9.0/LICENSE>
 ## Go runtime / standard library and golang.org/x/sys v0.30.0
 
 These components are distributed under the BSD 3-Clause terms reproduced in
-[licenses/GO-BSD.txt](licenses/GO-BSD.txt). Copyright 2009 The Go Authors.
+[licenses/GO-BSD.txt](licenses/GO-BSD.txt) and
+[licenses/X-SYS-LICENSE.txt](licenses/X-SYS-LICENSE.txt), respectively.
+Copyright 2009 The Go Authors.
 The Go toolchain used for this build was go1.27.1.
 
 ## gopkg.in/yaml.v3 v3.0.1
@@ -87,7 +89,11 @@ Upstream license and attribution notices are reproduced without alteration:
 - [YAML NOTICE](licenses/YAML-NOTICE.txt)
 - [Full Apache License 2.0](licenses/APACHE-2.0.txt)
 
-These additional texts accompany the existing 0.8.0 build 2 DMG externally;
+Complete upstream BSD notices for the other bundled Go dependencies are also
+provided in [licenses/DNS-LICENSE.txt](licenses/DNS-LICENSE.txt) and
+[licenses/FSNOTIFY-LICENSE.txt](licenses/FSNOTIFY-LICENSE.txt).
+
+These additional texts accompany the existing 1.4.0 build 8 DMG externally;
 the signed application bundle has not been modified. In GitHub Releases,
 extract the accompanying third-party-licenses ZIP next to this notice to
 access its `licenses/` directory.
