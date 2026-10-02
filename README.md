@@ -94,6 +94,8 @@ The **14-day Trial** lets you try Pro capabilities. When it ends, InvDNS returns
 to Free and preserves your configuration. Additional sources and Pro settings
 remain stored but inactive under Free.
 
+If you would like to support InvDNS and get **Pro**, you can donate any amount. As a thank-you for supporting the project, you will receive a perpetual Pro license.
+
 To obtain a license, please write to us by email:[invdnspro@gmail.com](mailto:invdnspro@gmail.com).
 
 ## Local DNS, integrated with macOS
